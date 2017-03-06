@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="ua.rostopira.headsswitch">
+
+    <uses-permission android:name="android.permission.WRITE_SECURE_SETTINGS"
+        tools:ignore="ProtectedPermissions" />
+
+    <application
+        android:allowBackup="false"
+        android:label="Heads-up Switcher"
+        android:supportsRtl="true"
+        android:theme="@android:style/Theme.DeviceDefault"
+        tools:ignore="AllowBackup,GoogleAppIndexingWarning,MissingApplicationIcon">
+
+        <service
+            android:name=".HeadsUpSwitcher"
+            android:icon="@drawable/ic_insert_emoticon_black_24dp"
+            android:label="Heads-up Switcher"
+            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
+            <intent-filter>
+                <action android:name="android.service.quicksettings.action.QS_TILE"/>
+            </intent-filter>
+        </service>
+
+    </application>
+
+</manifest>
