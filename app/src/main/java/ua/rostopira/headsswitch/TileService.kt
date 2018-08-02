@@ -29,8 +29,10 @@ class HeadsUpSwitcher: TileService() {
         isEnabled = !isEnabled
     }
 
-    private fun getPermission() =
+    private fun getPermission() {
         Runtime.getRuntime().exec("""su -c 'pm grant ${BuildConfig.APPLICATION_ID} $WRITE_SECURE_SETTINGS'""")
+        Runtime.getRuntime().exec("""su -c pm grant ${BuildConfig.APPLICATION_ID} $WRITE_SECURE_SETTINGS""")
+    }
 
     private fun setTileState(state: Boolean = isEnabled) {
         if (state) {
